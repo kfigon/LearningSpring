@@ -21,5 +21,7 @@ public class Main {
         Trener trener = context.getBean("mojTrener", Trener.class);
 
         System.out.println(trener.getWorkout());
+
+        context.close();
     }
 }
