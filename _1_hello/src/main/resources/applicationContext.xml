@@ -9,8 +9,24 @@
 
 
     <!-- bean definitions here -->
+    <bean id="pomocnik"
+          class="springdemo.TurboObiektPomocniczny">
+    </bean>
+
+
+    <!-- mozna wstrzykiwac przez konstruktor lub settr -->
     <bean id="mojTrener"
         class="springdemo.TrenerBiegania">
+
+        <!-- ta sama nazwa beana musi byc! -->
+        <constructor-arg ref="pomocnik"/>
+    </bean>
+
+
+    <bean id="mojTrenerSetterem"
+          class="springdemo.TrenerSzermierki">
+        <property name="obiektPomocniczy" ref="pomocnik"/>
+        <property name="jakasNazwa" value="DZIK" />
     </bean>
 
 
