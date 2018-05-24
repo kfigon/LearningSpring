@@ -29,3 +29,7 @@
 /.idea/uiDesigner.xml
 /_1_hello/target/classes
 /.idea/sonarlint
+/_2_helloAnnotations/target/classes/springdemoanno/*.class
+/_2_helloAnnotations/target/*.jar
+/.idea
+/_2_helloAnnotations/target
