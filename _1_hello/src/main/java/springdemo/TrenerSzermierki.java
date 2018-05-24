@@ -6,8 +6,10 @@ public class TrenerSzermierki implements Trener {
 
     private String jakasNazwa;
 
+    private String wlasciwosc;
+
     public String getWorkout() {
-        return "Trenujemy mocno cos innego";
+        return "Trenujemy mocno cos innego. Wlasciwosc: " + wlasciwosc;
     }
 
     public String getMsg() {
@@ -21,5 +23,9 @@ public class TrenerSzermierki implements Trener {
 
     public void setJakasNazwa(String jakasNazwa) {
         this.jakasNazwa = jakasNazwa;
+    }
+
+    public void setWlasciwosc(String wlasciwosc) {
+        this.wlasciwosc = wlasciwosc;
     }
 }
