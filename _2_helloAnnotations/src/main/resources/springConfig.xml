@@ -9,7 +9,7 @@
 
 
     <context:component-scan base-package="springdemoanno"/>
-
+    <context:property-placeholder location="propsy.properties"/>
     <!-- bean definitions here -->
 
 
