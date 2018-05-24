@@ -30,6 +30,21 @@ public class Main {
         System.out.println(trener2.getWorkout());
         System.out.println(trener2.getMsg());
 
+        // scope - defaultowo bean to singleton. Fajnie jakby byl stateless.
+        // inne scopy np. prototype (kazdy request do kontenera - context.newBean() tworzy nowy),
+        // request (http req), session itd.
+
+
+        // lifecycle methods. Dowolny akces, nazwa, returntype, ale bez argumentowa
+        // start kontenera,
+        // tworzenie beana,
+        // wstrzykiwanie,
+        // internal spring processing,
+        // moja customowa metoda.
+
+        // shutdown kontenera - mozna dac destroy callback
+
+        // UWAGA: dla scope prototype nie jest wolana metoda destroy!!!
 
         context.close();
     }

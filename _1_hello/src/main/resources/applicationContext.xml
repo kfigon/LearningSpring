@@ -21,18 +21,24 @@
     <bean id="mojTrener"
         class="springdemo.TrenerBiegania">
 
+        <!-- lifecycle hooks: -->
+        <!--init-method="tworzymy"-->
+        <!--destroy-method="niszczymy">-->
+
         <!-- ta sama nazwa beana musi byc! -->
         <constructor-arg ref="pomocnik"/>
     </bean>
 
 
-    <!--mozna wstzykiwac stale z pliku ze propertiesami albo dane tak po prostu-->
+    <!--mozna wstrzykiwac stale z pliku ze propertiesami albo dane tak po prostu-->
     <bean id="mojTrenerSetterem"
-          class="springdemo.TrenerSzermierki">
+          class="springdemo.TrenerSzermierki"
+          scope="singleton"> <!-- default, nie trzeba specyfikowac -->
         <property name="obiektPomocniczy" ref="pomocnik"/>
         <property name="jakasNazwa" value="DZIK" />
         <property name="wlasciwosc" value="${cokolwiek.dziwnaStala}"/>
     </bean>
+
 
 
 </beans>
