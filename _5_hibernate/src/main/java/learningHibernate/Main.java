@@ -11,8 +11,12 @@ public class Main {
 
 
     public static void main(String[] args) {
+        // czyta hibernate config file, tworzony raz w czasie zycia apki, tworzy sesje
+        // mozna jawnie wyspecyfikowac sciezke
+        // .addAnnotatedClass(Student.class) sprawi, ze nie bedzie potrzebny mapping w hibernate.cfg.xml
         try (SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory()) {
 
+            // sesja to wrapper na polaczenie jdbc
             persist(sessionFactory);
             load(sessionFactory);
         }
@@ -22,7 +26,8 @@ public class Main {
         System.out.println("-- loading persons --");
         Session session = sessionFactory.openSession();
 
-        List<String> persons = session.createQuery("FROM Student").list();
+        // hql
+        List persons = session.createQuery("FROM Student").list();
 
         persons.forEach(System.out::println);
         session.close();
@@ -34,11 +39,13 @@ public class Main {
 
         System.out.println("persisting students");
 
-        try (Session session = sessionFactory.openSession()) {
-            session.beginTransaction();
-            session.save(p1);
-            session.save(p2);
-            session.getTransaction().commit();
-        }
+        Session session = sessionFactory.openSession();
+
+        session.beginTransaction();
+        session.save(p1);
+        session.save(p2);
+        session.getTransaction().commit();
+
+        session.close();
     }
 }

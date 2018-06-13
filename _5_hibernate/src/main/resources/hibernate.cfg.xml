@@ -4,12 +4,13 @@
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
-    <session-factory>
 
-        <!--polaczenie z baza-->
+    <!--ustawienia session factory-->
+    <session-factory>
+        <!--polaczenie z baza, jaki driver-->
         <property name="connection.driver_class">org.h2.Driver</property>
 
-        <!--propsy-->
+        <!--propsy polaczenia-->
         <property name="connection.url">jdbc:h2:mem:test;DB_CLOSE_DELAY=-1</property>
         <property name="dialect">org.hibernate.dialect.H2Dialect</property>
         <property name="show_sql">true</property>
@@ -17,7 +18,11 @@
         <!--na poczatku tworzenie tabel-->
         <property name="hbm2ddl.auto">create</property>
 
-        <!--encja-->
+        <!--<property name="connection.password"></property>-->
+        <!--<property name="connection.username"></property>-->
+
+        <!--encja. mozna zastapic addAnnotatedClass przy tworzeniu sessionFactory -->
         <mapping class="learningHibernate.Student"/>
+
     </session-factory>
 </hibernate-configuration>
