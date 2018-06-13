@@ -28,6 +28,7 @@ public class Main {
 
         // hql
         List persons = session.createQuery("FROM Student").list();
+//        Student asd = session.get(Student.class, 1);  // przeczyta studenta o id 1
 
         persons.forEach(System.out::println);
         session.close();
