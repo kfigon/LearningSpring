@@ -10,6 +10,7 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 @Getter
@@ -26,6 +27,11 @@ public class Obroza {
     private String nazwa;
 
     private String rozmiar;
+
+//  dwukierunkowa relacja - nie trzeba zmieniac w bazie!
+//  wystarcza zwykla relacja 1-1 jednokieurnkowa w bazie
+    @OneToOne(mappedBy = "obroza") //obroza - member w klasie Pies
+    private Pies pies;
 
     @Override
     public String toString() {

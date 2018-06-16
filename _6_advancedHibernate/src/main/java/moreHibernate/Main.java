@@ -23,7 +23,7 @@ public class Main {
     }
 
     private static void populate(SessionFactory sessionFactory) {
-        Obroza o = Obroza.builder().rozmiar("XL").nazwa("Obraza ASD").build();
+        Obroza o = Obroza.builder().rozmiar("XL").nazwa("Obroza ASD").build();
         Pies p = Pies.builder().imie("ASD").wiek(12).obroza(o).build();
 
         Session s = sessionFactory.openSession();
