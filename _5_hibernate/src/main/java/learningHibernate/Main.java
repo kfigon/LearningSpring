@@ -19,15 +19,18 @@ public class Main {
             // sesja to wrapper na polaczenie jdbc
             persist(sessionFactory);
             load(sessionFactory);
+
+            loadParticular(sessionFactory, "Nowak");
         }
     }
 
+
     private static void load(SessionFactory sessionFactory) {
-        System.out.println("-- loading persons --");
+        System.out.println("\n-- loading persons --");
         Session session = sessionFactory.openSession();
 
         // hql
-        List persons = session.createQuery("FROM Student").list();
+        List<Student> persons = session.createQuery("FROM Student").getResultList();
 //        Student asd = session.get(Student.class, 1);  // przeczyta studenta o id 1
 
         persons.forEach(System.out::println);
@@ -38,7 +41,7 @@ public class Main {
         Student p1 = Student.builder().imie("Jan").nazwisko("Kowalski").wiek(34).build();
         Student p2 = Student.builder().imie("Jan").nazwisko("Nowak").wiek(15).build();
 
-        System.out.println("persisting students");
+        System.out.println("\npersisting students");
 
         Session session = sessionFactory.openSession();
 
@@ -47,6 +50,22 @@ public class Main {
         session.save(p2);
         session.getTransaction().commit();
 
+        session.close();
+    }
+
+
+    private static void loadParticular(SessionFactory sessionFactory, String nazwisko) {
+        System.out.println(String.format("\nloading students with nazwisko == %s", nazwisko));
+
+
+        Session session = sessionFactory.openSession();
+
+        List<Student> wynik = session
+                .createQuery("from Student s where s.nazwisko = :nazwisko")
+                .setParameter("nazwisko", nazwisko)
+                .getResultList();
+
+        wynik.forEach(System.out::println);
         session.close();
     }
 }
