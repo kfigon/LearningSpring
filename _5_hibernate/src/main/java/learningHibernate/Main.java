@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.io.Serializable;
 import java.util.List;
 
 
@@ -21,9 +22,11 @@ public class Main {
             load(sessionFactory);
 
             loadParticular(sessionFactory, "Nowak");
+            updateData(sessionFactory);
+
+            load(sessionFactory);
         }
     }
-
 
     private static void load(SessionFactory sessionFactory) {
         System.out.println("\n-- loading persons --");
@@ -66,6 +69,36 @@ public class Main {
                 .getResultList();
 
         wynik.forEach(System.out::println);
+        session.close();
+    }
+
+
+    private static void updateData(SessionFactory sessionFactory) {
+        System.out.println("\nUpdating student");
+        Student s = Student.builder().imie("Kszysztof").nazwisko("Wisniewski").wiek(66).build();
+
+        Session session = sessionFactory.openSession();
+
+        session.beginTransaction();
+        session.save(s);
+        session.getTransaction().commit();
+
+
+        s = (Student)session.createQuery("from Student s where s.imie = :imie")
+                .setParameter("imie", "Kszysztof")
+                .getSingleResult();
+
+        s.setImie("Krzysztof");
+        session.beginTransaction();
+        session.save(s);
+        session.getTransaction().commit();
+
+        // update wielu
+//        session.createQuery("my turbo query").executeUpdate();
+
+//        session.delete(s);
+        // i commit
+
         session.close();
     }
 }
