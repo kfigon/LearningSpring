@@ -31,7 +31,7 @@ public class Pies {
     private Integer wiek;
 
     @OneToOne
-    @JoinColumn(name = "obroza_id") // co w bazie jest
+    @JoinColumn(name = "obroza_id") // co w bazie jest w foreign key
     private Obroza obroza;
 
     @Override
