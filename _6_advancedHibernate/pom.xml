@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>LearningSpring</groupId>
-    <artifactId>_5_hibernate</artifactId>
+    <artifactId>_6_advancedHibernate</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>

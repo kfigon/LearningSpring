@@ -14,3 +14,4 @@ insert into pies(imie, wiek, obroza_id) VALUES ('Maksiu',15,2);
 insert into pies(imie, wiek, obroza_id) VALUES ('Puszek',5,3);
 insert into pies(imie, wiek, obroza_id) VALUES ('DzikiPies',15,4);
 
+COMMIT
