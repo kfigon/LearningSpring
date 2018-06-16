@@ -10,8 +10,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -32,6 +34,9 @@ public class Pies {
     @OneToOne
     @JoinColumn(name = "obroza_id") // co w bazie jest w foreign key
     private Obroza obroza;
+
+    @OneToMany(mappedBy = "pies")
+    private Set<Zabawka> zabawki;
 
     @Override
     public String toString() {

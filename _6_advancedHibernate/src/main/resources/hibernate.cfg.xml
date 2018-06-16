@@ -17,6 +17,7 @@
 
         <mapping class="moreHibernate.Pies"/>
         <mapping class="moreHibernate.Obroza" />
+        <mapping class="moreHibernate.Zabawka" />
 
     </session-factory>
 </hibernate-configuration>
