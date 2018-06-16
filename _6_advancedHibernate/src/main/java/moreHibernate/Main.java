@@ -17,7 +17,16 @@ public class Main {
             // usuwania encji 'glownej'
 
             // fetch type - eager i lazy
+            // jesli cos jest lazy - trzeba zainicjalizowac:
+            // w hql - join fetch
+            // jesli sesja otwarta, wystarczy zrobic geta
+            // jesli zamknieta - Hibernate.initialize()
 
+            // defaulty:
+            // onetoone eager
+            // onetomany lazy
+            // manytoone eager
+            // manytomany lazy
             populate(sessionFactory);
 
             // kaskady sa zahaczona na lifecycle entity w hibernate
@@ -41,6 +50,8 @@ public class Main {
 
         z1.setPies(p);
         z2.setPies(p);
+
+
         Session s = sessionFactory.openSession();
         s.beginTransaction();
         s.save(o);

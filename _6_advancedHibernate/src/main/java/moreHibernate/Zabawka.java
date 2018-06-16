@@ -25,7 +25,7 @@ public class Zabawka {
 
     private String nazwa;
 
-    // one to many musi byc dwukierunkowe
+    // one to many nie musi byc dwukierunkowe
     @ManyToOne
     @JoinColumn(name = "pies_id")
     private Pies pies;
