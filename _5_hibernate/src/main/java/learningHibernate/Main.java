@@ -10,6 +10,9 @@ import java.util.List;
 
 public class Main {
 
+// gdyby pisac web serwis to bylby kontroler i w srodku serwis.
+// serwis mialby DAO - obiekt do najpopularniejszych operacji na encji na bazie.
+// spring ma adnotacje @Repository, ktory caly redukuje boilerplate zwiazany z tworzeniem
 
     public static void main(String[] args) {
         // czyta hibernate config file, tworzony raz w czasie zycia apki, tworzy sesje
@@ -30,6 +33,7 @@ public class Main {
 
     private static void load(SessionFactory sessionFactory) {
         System.out.println("\n-- loading persons --");
+		// session.open() i close() mozna wywalic, jesli jest adnotacja @Transactional. Spring sam otworzy i zamknie sesje
         Session session = sessionFactory.openSession();
 
         // hql
