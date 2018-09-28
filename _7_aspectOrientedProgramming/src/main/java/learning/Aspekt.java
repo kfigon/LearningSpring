@@ -11,6 +11,8 @@ public class Aspekt {
     // advice
     @Before("execution(public void foo())")
     public void turboAkcja() {
-        System.out.println("---->odpalam aspekt przed someService.foo()");
+        System.out.println("\n---->odpalam aspekt przed foo()");
     }
+
+    
 }

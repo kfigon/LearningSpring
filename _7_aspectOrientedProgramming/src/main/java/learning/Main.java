@@ -12,6 +12,7 @@ public class Main {
 
         someService.foo();
         otherService.bar();
+        otherService.foo();
 
         context.close();
 
