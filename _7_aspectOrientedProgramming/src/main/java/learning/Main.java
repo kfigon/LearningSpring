@@ -14,6 +14,8 @@ public class Main {
         otherService.bar();
         otherService.foo();
 
+        someService.fooPredykat();
+
         context.close();
 
 
